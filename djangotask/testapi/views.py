@@ -29,6 +29,7 @@ def createUser(request):
 def getUser(request):
     data=json.load(request)
     
+    
     try:
         user=Users.objects.get(email=data['email'])
         response = {
@@ -49,6 +50,7 @@ def getUser(request):
 def deleteUser(request):
     data=json.load(request)
     try:
+        # delete by email
         user=Users.objects.get(email=data['email'])
         user.delete()
         response = {
